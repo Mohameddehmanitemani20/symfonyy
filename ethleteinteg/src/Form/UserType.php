@@ -17,12 +17,14 @@ class UserType extends AbstractType
             ->add('email')
             ->add('nom')
             ->add('numTel')
-            ->add('password')
+            
             ->add('prenom')
-            ->add('roles')
+            
             ->add('username')
             ->add('genre')
             ->add('idEq')
+            
+            
         ;
     }
 

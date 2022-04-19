@@ -117,6 +117,15 @@
                                 </div>
                                 {{ form_widget(registrationForm.ideq  , {'attr' : {'class' : 'form-control p_input' , 'placeholder' : 'id equipe'}}) }}
                             </div>
+
+                             {{ form_errors(registrationForm.captchaCode , {'attr' : {'class' : ' alert alert-danger label'}}) }}
+                            <div class="input-group input-group-merge input-group-alternative mb-3">
+
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"></span>
+                                </div>
+                                {{ form_widget(registrationForm.captchaCode  , {'attr' : {'class' : 'form-control p_input' , 'placeholder' : 'captchaCode'}}) }}
+                            </div>
                             
                             
 
@@ -134,7 +143,7 @@
                             {{ form_end(registrationForm) }}
                             <div class="form-group d-flex align-items-center justify-content-between">
                                 <a href="{{ path('app_login') }}" class="forgot-pass"><small>Login</small></a>
-                                <a href="" class="forgot-pass"><small>Forgot password?</small></a>
+                                <a href="{{ path('app_forgotten_password') }}" class="forgot-pass"><small>Forgot password?</small></a>
                             </div>
                         </div>
                     </div>

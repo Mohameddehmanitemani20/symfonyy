@@ -23,6 +23,8 @@ class EditUserType extends AbstractType
         ->add('username')
         ->add('genre')
         ->add('idEq')
+        
+        
             
         ;
     }

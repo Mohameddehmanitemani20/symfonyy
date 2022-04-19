@@ -1,4 +1,4 @@
-{% extends 'front.html.twig' %}
+{% extends 'back.html.twig' %}
 
 {% block title %}New Article{% endblock %}
 
@@ -7,5 +7,5 @@
 
     {{ include('article/_form.html.twig') }}
 
-    <a href="{{ path('app_article_index') }}">back to list</a>
+    <a class="btn btn-primary" href="{{ path('app_article_index') }}">back to list</a>
 {% endblock %}

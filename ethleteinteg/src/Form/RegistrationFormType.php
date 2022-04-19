@@ -11,6 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType;
 
 class RegistrationFormType extends AbstractType
 {
@@ -22,6 +23,9 @@ class RegistrationFormType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('numtel')
+            ->add('captchaCode', CaptchaType::class, array(
+                'captchaConfig' => 'ExampleCaptcha'
+              ))
            
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
@@ -52,6 +56,7 @@ class RegistrationFormType extends AbstractType
             ->add('dateNaissance')
             ->add('genre')
             ->add('ideq')
+            
         ;
     }
 

@@ -2,7 +2,7 @@
 
 
 {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
-    <div style="background-color:red">
+    <div >
 {{ form_row(form.adresse) }}
 </div>
 
@@ -11,7 +11,8 @@
 {{ form_row(form.email) }}
 {{ form_row(form.username) }}
 {{ form_row(form.numTel) }}
-{{ form_row(form.roles)  }}
+
+
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <button class="btn btn-success">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

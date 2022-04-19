@@ -116,11 +116,7 @@
 
 
                                       
-                                        <form  method="get" action="{{ path('delete_profile') }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
-                                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
-                                            <button class="btn btn-danger btn-fw"><i
-                                                        class="fa fa-angle-right"></i> Delete Account</button>
-                                        </form>
+                                        
 
                                     </div>
                 </div>

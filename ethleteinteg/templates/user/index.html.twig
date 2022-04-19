@@ -41,8 +41,8 @@
                 <td>{{ user.genre }}</td>
                 <td>{{ user.idEq }}</td>
                 <td>
-                    <a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+                    <a class="btn btn-success" href="{{ path('app_user_show', {'id': user.id}) }}">show</a> 
+                    <a class="btn btn-primary"  href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}

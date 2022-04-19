@@ -21,6 +21,8 @@ class ProfileType extends AbstractType
             ->add('username')
             ->add('genre')
             ->add('idEq')
+            
+
         ;
     }
 

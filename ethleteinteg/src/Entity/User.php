@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Captcha\Bundle\CaptchaBundle\Validator\Constraints as CaptchaAssert;
 
 /**
  * User
@@ -126,6 +127,43 @@ class User implements UserInterface
      * @Assert\NotBlank(message="le champs ne doit pas etre vide")
      */
     private $idEq;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $activation_token;
+
+    /**
+     * @ORM\Column(type="string", length=60, nullable=true)
+     */
+    private $reset_token;
+
+     /**
+     * @ORM\Column(type="string", length=65, nullable=true)
+     */
+    private $disable_token;
+
+     /**
+   * @CaptchaAssert\ValidCaptcha(
+   *      message = "CAPTCHA validation failed, try again.",
+   *      groups={"registration"}
+   * )
+   */
+  protected $captchaCode;
+
+  public function getCaptchaCode()
+  {
+    return $this->captchaCode;
+  }
+
+  public function setCaptchaCode($captchaCode)
+  {
+    $this->captchaCode = $captchaCode;
+  }
+
+
+
+
 
     public function getId(): ?int
     {
@@ -283,6 +321,43 @@ class User implements UserInterface
     public function __toString()
     {
         return $this->getNom();
+    }
+
+
+    public function getActivationToken(): ?string
+    {
+        return $this->activation_token;
+    }
+
+    public function setActivationToken(?string $activation_token): self
+    {
+        $this->activation_token = $activation_token;
+
+        return $this;
+    }
+
+    public function getResetToken(): ?string
+    {
+        return $this->reset_token;
+    }
+
+    public function setResetToken(?string $reset_token): self
+    {
+        $this->reset_token = $reset_token;
+
+        return $this;
+    }
+
+    public function getDisableToken(): ?string
+    {
+        return $this->disable_token;
+    }
+
+    public function setDisableToken(?string $disable_token): self
+    {
+        $this->disable_token = $disable_token;
+
+        return $this;
     }
 
     public function serialize() {
